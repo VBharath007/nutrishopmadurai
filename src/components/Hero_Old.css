@@ -1,0 +1,433 @@
+/* Update base hero section for organic background */
+.hero-section {
+  padding-top: 160px;
+  /* Reduced from 220px since the header is thinner now */
+  padding-bottom: 1rem;
+  /* Reduced slightly */
+  background-color: var(--theme-bg, #fcf9f2);
+  background-image: radial-gradient(rgba(101, 163, 13, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  /* Reduced from 95vh for a lighter height */
+  display: flex;
+  align-items: center;
+}
+
+/* Cinematic Realistic Background */
+.realistic-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bgFadeIn 1.5s ease forwards;
+}
+
+.realistic-bg-img {
+  width: 110vw;
+  max-width: 1400px;
+  height: auto;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  /* This magically deletes the pure white background of the AI images! */
+  opacity: 0.95;
+  /* Increased opacity so the image is seen very clearly */
+  /* filter: blur(2px); Removed blur so the realistic cow/milk is perfectly sharp */
+  animation: floatRealistic 15s ease-in-out infinite alternate;
+}
+
+@keyframes floatRealistic {
+  0% {
+    transform: translateY(20px) scale(1) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.05) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(15px) scale(1.02) rotate(-1deg);
+  }
+}
+
+@keyframes bgFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Wave edge effect */
+.wave-edge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  z-index: 2;
+  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,144C672,149,768,203,864,202.7C960,203,1056,149,1152,128C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>');
+  mask-size: 100% 100%;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--theme-gradient, linear-gradient(135deg, #65a30d 0%, #4d7c0f 100%));
+  color: white;
+}
+
+.pulse-btn {
+  position: relative;
+}
+
+.pulse-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background: inherit;
+  z-index: -1;
+  animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.15, 1.35);
+    opacity: 0;
+  }
+}
+
+.shadow-glow {
+  box-shadow: 0 10px 25px rgba(101, 163, 13, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(101, 163, 13, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+}
+
+.hover-fill:hover {
+  border-color: var(--theme-primary, #65a30d);
+  color: var(--theme-primary, #65a30d);
+}
+
+.hover-fill:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+/* 3D Carousel Area (Right Side) */
+.hero-carousel-area {
+  position: relative;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  margin-top: 2rem;
+  /* Added margin to push it further down */
+}
+
+.scene {
+  width: 250px;
+  height: 250px;
+  /* Adjusted to perfect height */
+  position: relative;
+  perspective: 1200px;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-cell {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  /* Perfect height to fit image and text */
+  left: 0;
+  top: 0;
+  border-radius: 120px 120px 20px 20px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), inset 0 0 40px rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  margin-top: 20px;
+  backface-visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-cell:hover {
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.2), inset 0 0 30px rgba(255, 255, 255, 0.8);
+  transform: translateY(-5px);
+}
+
+.arch-img-wrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin: -35px auto 1rem auto;
+  /* Pop out effect */
+  /* Combine a base shadow with a dynamic glowing aura matching the theme color */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 25px var(--theme-primary, rgba(101, 163, 13, 0.5));
+  border: 5px solid white;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  background-color: white;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arch-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s;
+}
+
+.carousel-cell:hover .arch-img-wrap {
+  transform: translateY(-12px) scale(1.05);
+  /* Increase the glowing aura heavily on hover */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 45px var(--theme-primary, rgba(101, 163, 13, 0.8));
+}
+
+.carousel-cell:hover .arch-img-wrap img {
+  transform: scale(1.1);
+}
+
+.cell-content {
+  text-align: center;
+  width: 100%;
+}
+
+.cell-content h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+.cell-content p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Controls */
+.carousel-controls {
+  margin-top: 4rem;
+  /* Increased margin to perfectly clear the card */
+  display: flex;
+  gap: 1.5rem;
+  z-index: 10;
+}
+
+.control-btn {
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+  background: var(--theme-primary, #65a30d);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Catchy Floating Features */
+.floating-features {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+  /* Float above the carousel! */
+}
+
+.feature-badge {
+  position: absolute;
+  /* Premium Frosted Glass Background */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Delicate Border */
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+  /* Text Styling */
+  color: #1f2937;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-shadow: none;
+  /* Removed heavy shadow since we have a light background now */
+
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.animate-feature {
+  animation-name: textReveal, floatFeature;
+  animation-duration: 1.2s, 6s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1), ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, alternate;
+  animation-fill-mode: both, both;
+}
+
+/* Position them right around the center carousel! Spaced out perfectly */
+.feat-1 {
+  top: 20%;
+  left: 14%;
+  animation-delay: 0.1s, 1.3s;
+}
+
+.feat-2 {
+  top: 45%;
+  right: 12%;
+  animation-delay: 0.4s, 1.6s;
+}
+
+.feat-3 {
+  bottom: 20%;
+  left: 16%;
+  animation-delay: 0.7s, 1.9s;
+}
+
+/* Cinematic Text Animation */
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(30px) scale(0.95);
+    letter-spacing: -2px;
+  }
+
+  60% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+    letter-spacing: 1.5px;
+  }
+}
+
+@keyframes floatFeature {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-carousel-area {
+    height: 400px;
+    margin-top: 1rem;
+  }
+
+  .scene {
+    width: 200px;
+    height: 240px;
+  }
+
+  .carousel-cell {
+    width: 200px;
+    height: 240px;
+  }
+
+  .cell-img-wrap {
+    height: 150px;
+  }
+
+  .organic-element {
+    opacity: 0.4;
+  }
+}

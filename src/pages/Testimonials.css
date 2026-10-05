@@ -1,0 +1,229 @@
+.testimonials-page {
+  background-color: #f8f9fa; /* Google-like light grey background */
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  font-family: 'Roboto', 'Inter', sans-serif; /* Google uses Roboto */
+}
+
+.testimonials-header-bg {
+  background-color: white;
+  padding: 180px 20px 40px 20px; /* high padding to account for fixed header */
+  border-bottom: 1px solid #dadce0;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.testimonials-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonials-header-content h1 {
+  font-size: 2.5rem;
+  color: #166534; /* Theme green color */
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.testimonials-header-content p {
+  font-size: 1.1rem;
+  color: #5f6368;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.overall-rating-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  background: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid #e8eaed;
+  margin-top: 10px;
+}
+
+.rating-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-right: 1px solid #dadce0;
+  padding-right: 24px;
+}
+
+.google-rating-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3c4043;
+}
+
+.rating-score {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #202124;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.review-count {
+  font-size: 0.85rem;
+  color: #5f6368;
+  font-weight: 500;
+}
+
+/* Grid layout for reviews */
+.google-reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start; /* Prevents cards from stretching to equal height */
+}
+
+@media (min-width: 768px) {
+  .google-reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .google-reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Review Card styling resembling Google Reviews */
+.google-review-card {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+  padding: 24px;
+  transition: box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.google-review-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.gr-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.gr-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.gr-user-info {
+  flex-grow: 1;
+}
+
+.gr-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #202124;
+  margin: 0 0 4px 0;
+}
+
+.gr-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #70757a;
+  gap: 6px;
+}
+
+.gr-verified {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.gr-logo {
+  flex-shrink: 0;
+  margin-left: auto;
+  opacity: 0.8;
+}
+
+.gr-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.gr-text {
+  font-size: 0.95rem;
+  color: #3c4043;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gr-attached-image {
+  margin-top: 16px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dadce0;
+  background: #f8f9fa;
+}
+
+.gr-attached-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  display: block;
+}
+
+.gr-attached-gallery {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.gr-gallery-item {
+  flex: 0 0 calc(33.333% - 6px);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dadce0;
+  background: white;
+  aspect-ratio: 1/1;
+  padding: 4px;
+}
+
+.gr-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}

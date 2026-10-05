@@ -1,0 +1,115 @@
+.sales-toast-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  padding: 12px 16px;
+  z-index: 9999;
+  transform: translateY(150%) scale(0.9);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-left: 4px solid #166534;
+  pointer-events: none; /* allows clicking through when hidden */
+}
+
+.sales-toast-wrapper.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sales-toast-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  padding-right: 24px; /* Space for close button */
+}
+
+.st-icon-box {
+  margin-top: 2px;
+}
+
+.st-check-icon {
+  color: #166534;
+}
+
+.st-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.st-buyer {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.st-product {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.st-time {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: 0;
+  margin-top: 4px;
+}
+
+.st-close-btn {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: transparent;
+  border: none;
+  color: #6b7280; /* Darker for better visibility */
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.st-close-btn:hover {
+  color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .sales-toast-wrapper {
+    left: 10px;
+    right: auto;
+    bottom: 75px;
+    width: max-content;
+    max-width: calc(100vw - 20px);
+    padding: 10px 14px;
+  }
+  .st-buyer {
+    font-size: 0.7rem;
+  }
+  .st-product {
+    font-size: 0.8rem;
+  }
+  .st-time {
+    font-size: 0.6rem;
+  }
+  .st-icon-box svg {
+    width: 16px;
+    height: 16px;
+  }
+  .st-close-btn {
+    top: -2px;
+    right: -2px;
+  }
+  .st-close-btn svg {
+    width: 16px;
+    height: 16px;
+    color: #374151; /* Very clearly visible on mobile */
+  }
+}

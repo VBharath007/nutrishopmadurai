@@ -1,0 +1,19 @@
+.our-story-page {
+  background-color: #fdfbf7;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  padding-top: 160px; /* Offset for fixed header */
+  margin-bottom: -80px; /* Pull footer up to eliminate gap */
+}
+
+@media (max-width: 767px) {
+  .our-story-page {
+    padding-top: 100px;
+    margin-bottom: -20px; /* Pull footer up by only 20px on mobile to prevent overlapping logo */
+  }
+}
+
+/* Hide footer's top wave on Our Story page because FarmToTable already provides a seamless wave */
+body:has(.our-story-page) .footer-torn-top {
+  display: none !important;
+}

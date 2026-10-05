@@ -1,0 +1,275 @@
+.a2-custom-section {
+  position: relative;
+  padding: 1.5rem 1rem 0.5rem 1rem;
+  background-color: #f0f4f8;
+  /* Soft blue/grey fallback */
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.a2-custom-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/milk_splash_bg.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  /* Adjust this value to make it lighter/darker */
+  z-index: 1;
+}
+
+.a2-custom-container {
+  max-width: 1400px;
+  /* Increased to give more space */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* CENTER COLUMN - COW */
+.a2-center-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes cowFloat {
+  0% {
+    transform: translateY(0px) scale(1.15) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) scale(1.15) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0px) scale(1.15) rotate(0deg);
+  }
+}
+
+.a2-cow-image {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* RIGHT COLUMN - PRODUCTS */
+.a2-right-col {
+  flex: 1.6;
+  /* Increased to give product cards more space */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+.a2-section-title-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.a2-section-title-wrapper h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1a3b5c;
+  /* Dark blue for high visibility on light background */
+  margin: 0 0 5px 0;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.a2-section-title-wrapper p {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2e7d32;
+  /* Dark green */
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.a2-products-row {
+  display: flex;
+  gap: 1.5rem;
+  /* Reduced gap */
+  width: 100%;
+  max-width: 750px;
+  /* Constrain overall width of the row to reduce card sizes */
+}
+
+.a2-prod-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1rem 1rem 1.25rem 1rem;
+  /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.a2-prod-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.a2-prod-img-box {
+  width: 100%;
+  aspect-ratio: 1;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: transform 0.4s ease;
+  /* Make the image box spread closer to edges */
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.a2-prod-card:hover .a2-prod-img-box {
+  transform: scale(1.08);
+}
+
+.a2-prod-img-box img {
+  width: 110%;
+  /* Spread end to end, exceeding the box slightly */
+  height: 110%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.1));
+}
+
+.a2-prod-name {
+  margin: 0 0 0.4rem 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #0d2818; /* Very dark rich green for maximum contrast */
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.a2-prod-desc {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  flex: 1;
+}
+
+.a2-price-tag {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2E7D32;
+  margin-bottom: 1.2rem;
+}
+
+.a2-prod-shop-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+  color: white;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.a2-prod-shop-btn:hover {
+  background: linear-gradient(135deg, #43A047 0%, #1B5E20 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .a2-custom-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .a2-center-col {
+    order: -1;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .a2-right-col {
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .a2-custom-section {
+    padding: 2rem 1rem;
+  }
+
+  .a2-cow-image {
+    max-width: 300px; /* Specific limit for mobile cow size */
+    margin: 0 auto;
+  }
+
+  .a2-section-title-wrapper h3 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .a2-products-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .a2-prod-card {
+    width: 100%;
+    max-width: none;
+    padding: 0.8rem;
+  }
+  
+  .a2-prod-name {
+    font-size: 1.1rem;
+  }
+  
+  .a2-price-tag {
+    font-size: 1.1rem;
+  }
+}
