@@ -1408,6 +1408,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid #e2e8f0;
