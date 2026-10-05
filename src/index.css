@@ -73,7 +73,7 @@ body::after {
   position: fixed;
   width: 250px;
   height: 250px;
-  background-image: url('./assets/nutrilogo.webp');
+  background-image: url('./assets/nutrishop-logo.webp');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

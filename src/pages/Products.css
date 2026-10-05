@@ -28,7 +28,7 @@
 .premium-header-bg {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('../assets/expolre/exploreherosection.png');
+  background-image: url('../assets/nature_tree_background.png');
   background-size: cover;
   background-position: center center;
   z-index: 1;

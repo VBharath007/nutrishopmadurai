@@ -73,7 +73,7 @@ import img_281 from '../assets/Cosmeticimages/Thailam Webp/nilgiri thailam.webp'
 import img_newFacewash from '../assets/Cosmeticimages/Facewash Webp/Hibiscus  Face wash.webp';
 import img_newShampoo from '../assets/Cosmeticimages/Shampoo Webp/shampoo_antidandruff.webp';
 import img_newBodywash from '../assets/Cosmeticimages/Bodywash Webp/saffron body wash.webp';
-import img_newFaceGel from '../assets/Cosmeticimages/Face gel Webp/after shave face gel.webp';
+import img_newFaceGel from '../assets/Cosmeticimages/Face Gel Webp/after-shave-face-gel.webp';
 import img_newBodyLotion from '../assets/Cosmeticimages/Bodylotion Webp/sunscreen body lotion.webp';
 import img_coldMoisturising from '../assets/Cosmeticimages/Bodylotion Webp/cold moisturising body lotion.webp';
 import img_wheatgermVanilla from '../assets/Cosmeticimages/Bodylotion Webp/Wheatgerm & Vanilla body lotion.webp';
